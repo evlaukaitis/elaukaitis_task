@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="add_customer_table" author="Evaldas">
+        <preConditions onFail="MARK_RAN" onError="MARK_RAN">
+        </preConditions>
+        <createTable tableName="CUSTOMER">
+            <column name="ID" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="PK_CUSTOMER"/>
+            </column>
+            <column name="NAME" type="VARCHAR2(31 CHAR)"/>
+            <column name="SURNAME" type="VARCHAR2(31 CHAR)"/>
+            <column name="BIRTH_DATE" type="DATE"/>
+            <column name="EMAIL" type="VARCHAR2(255 CHAR)">
+                <constraints unique="true"/>
+            </column>
+            <column name="PHONE" type="VARCHAR2(31 CHAR)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
